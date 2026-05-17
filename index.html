@@ -61,6 +61,9 @@
             score++; // Прибавляем 1 очко
             scoreDisplay.textContent = score; // Обновляем цифру на экране
             localStorage.setItem('coins', score);
+            if (score % 100 === 0) {
+    coinBtn.style.background = 'linear-gradient(145deg, #ff00ff, #00ffff)';
+}
         });
         
     </script>
