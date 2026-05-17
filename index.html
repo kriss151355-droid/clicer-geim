@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой супер-кликер</title>
+    <style>
+        /* Делаем красивый темный фон, как в Телеграме */
+        body {
+            background-color: #1c1c1e;
+            color: white;
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            /* Запрещаем выделение текста при частых кликах */
+            user-select: none; 
+        }
+
+        /* Стиль для счетчика */
+        .score-container {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        /* Стиль для большой круглой кнопки */
+        .click-button {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: none;
+            background: linear-gradient(145deg, #ff9f0a, #ff3b30);
+            box-shadow: 0 10px 25px rgba(255, 63, 48, 0.5);
+            cursor: pointer;
+            transition: transform 0.1s ease;
+            outline: none;
+        }
+
+        /* Эффект нажатия на кнопку */
+        .click-button:active {
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="score-container">Монеты: <span id="score">0</span></div>
+    <button class="click-button" id="coinBtn"></button>
+
+    <script>
+        let score = 0;
+        const scoreDisplay = document.getElementById('score');
+        const coinBtn = document.getElementById('coinBtn');
+
+        // Слушаем каждый клик по кнопке
+        coinBtn.addEventListener('click', () => {
+            score++; // Прибавляем 1 очко
+            scoreDisplay.textContent = score; // Обновляем цифру на экране
+        });
+    </script>
+
+</body>
+</html>
