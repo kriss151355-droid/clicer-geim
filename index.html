@@ -52,7 +52,7 @@
     <button class="click-button" id="coinBtn"></button>
 
     <script>
-        let score = 0;
+        let score = parseInt(localStorage.getItem('coins')) || 0
         const scoreDisplay = document.getElementById('score');
         const coinBtn = document.getElementById('coinBtn');
 
@@ -60,7 +60,9 @@
         coinBtn.addEventListener('click', () => {
             score++; // Прибавляем 1 очко
             scoreDisplay.textContent = score; // Обновляем цифру на экране
+            localStorage.setItem('coins', score);
         });
+        
     </script>
 
 </body>
